@@ -316,11 +316,11 @@
           |params:LaunchParams|.
         </p>
         <ol class="algorithm">
-          <li>If |params| is null, set |params| to a new {{LaunchParams}} with
-              {{LaunchParams/targetURL}} set to [=manifest/start_url=].
+          <li>If |params| is not given, set |params| to a new {{LaunchParams}}
+              with {{LaunchParams/targetURL}} set to [=manifest/start_url=].
           </li>
           <li>Set |client| to the result of running the steps to
-              [=prepare a web app launch client=] passing the web app's
+              [=prepare a web app launch client=] with the web app's
               <a data-cite="appmanifest#dfn-processed-manifest">processed
               manifest</a> and |params|.{{LaunchParams/targetURL}}.
           </li>
@@ -372,8 +372,7 @@
               <dd>
                 <ol class="algorithm">
                   <li>Return the result of running the steps to [=prepare a new
-                      web app launch client=] passing |manifest| and
-                      |target URL|.
+                      web app launch client=] with |manifest| and |target URL|.
                   </li>
                 </ol>
               <dt>[=client mode/navigate-existing=] or
@@ -382,7 +381,7 @@
                 <ol class="algorithm">
                   <li>If there is no [=top-level browsing context=] for
                       the web app, return the result of the result of
-                      [=prepare a new web app launch client=] passing |manifest|
+                      [=prepare a new web app launch client=] with |manifest|
                       and |target URL|.
                   </li>
                   <li>Let |client| be a [=top-level browsing context=]
@@ -416,7 +415,7 @@
           <li><a data-cite="appmanifest#dfn-applied">Apply</a> |manifest| to
               |client|.
           </li>
-          <li>Run the steps to [=navigate=] |client| passing |target URL|.
+          <li>Run the steps to [=navigate=] |client| with |target URL|.
           </li>
           <li>Return |client|.
           </li>
